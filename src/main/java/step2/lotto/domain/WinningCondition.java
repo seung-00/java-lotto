@@ -1,5 +1,7 @@
 package step2.lotto.domain;
 
+import java.util.Arrays;
+
 public enum WinningCondition {
 	NOTHING(0, 0),
 	FOURTH_PRIZE(3, 5_000),
@@ -16,13 +18,10 @@ public enum WinningCondition {
 	}
 
 	public static WinningCondition from(int matchCount) {
-		for (WinningCondition condition : WinningCondition.values()) {
-			if (condition.matchCount == matchCount) {
-				return condition;
-			}
-		}
-
-		throw new IllegalArgumentException("당첨 조건이 존재하지 않습니다.");
+		return Arrays.stream(WinningCondition.values())
+			.filter(condition -> condition.matchCount == matchCount)
+			.findFirst()
+			.orElseThrow(() -> new IllegalArgumentException("당첨 조건이 존재하지 않습니다."));
 	}
 
 	public int getWinningMoney() {
