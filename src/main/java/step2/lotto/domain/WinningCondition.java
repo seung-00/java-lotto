@@ -2,10 +2,10 @@ package step2.lotto.domain;
 
 public enum WinningCondition {
 	NOTHING(0, 0),
-	FOURTH_PRIZE(3, 5000),
-	THIRD_PRIZE(4, 50000),
-	SECOND_PRIZE(5, 1500000),
-	FIRST_PRIZE(6, 2000000000);
+	FOURTH_PRIZE(3, 5_000),
+	THIRD_PRIZE(4, 50_000),
+	SECOND_PRIZE(5, 1_500_000),
+	FIRST_PRIZE(6, 2_000_000_000);
 
 	private final int matchCount;
 	private final int winningMoney;
